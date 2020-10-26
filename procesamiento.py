@@ -7,7 +7,7 @@ Created on Sun Sep 27 01:21:53 2020
 
 Función de procesamiento para calcular el z-score dF/F de la senal adquirida mediante el sistema de Fiber Photometry.
 
-Para el desarrollo de esta función se adaptó código de la siguiente referencia:
+Para el desarrollo de esta función se adaptó en parte código de la siguiente referencia:
     
 (1) Martianova, E., Aronson, S., Proulx, C.D. Multi-Fiber Photometry 
       to Record Neural Activity in Freely Moving Animal. J. Vis. Exp. 
@@ -25,9 +25,9 @@ import matplotlib.pyplot as plt
 from get_zdFF import get_zdFF
 
 # Cargar datos | Ajustar directorio de forma acorde al usuario
-folder = '/Users/marcelochiesa/Desktop/Photometry_data_processing-master/Python/' 
+folder = 'inserte-directorio' 
 # Nombre del archivo 
-file_name = '100fps.csv'   
+file_name = 'inserte-nombre-de-archivo'   
         
 # Lectura
 df = pd.read_csv(folder+file_name,index_col=False) 
@@ -62,16 +62,6 @@ stdev_ref = np.std(raw_reference)
 SNR_ref = avg_ref/stdev_ref
 
 print(f'La SNR de la señal correspondiente al LED de 410 nm es {SNR_ref}.')
-
-"""
-# example.csv BLOCK --------------------------------------------------------------------------------------------
-   
-raw_reference = df['MeanInt_410nm'][1:]
-raw_signal = df['MeanInt_470nm'][1:]
-    
-"""
-    
-# --------------------------------------------------------------------------------------------------------------
     
 # Grafica la data sin procesar.
 fig = plt.figure(figsize=(16, 10))
